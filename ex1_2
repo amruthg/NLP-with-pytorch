@@ -1,0 +1,13 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+corpus={'time flies flies like an arrow','fruit flies like a banana.'}
+
+Tfidf_Vectorizer = TfidfVectorizer()
+tfidf = Tfidf_Vectorizer.fit_transform(corpus).toarray()
+
+vocab = Tfidf_Vectorizer.get_feature_names_out()
+sns.heatmap(tfidf, annot=True, cbar= False, xticklabels=vocab, yticklabels=['sentence 1', 'Sentence 2'])
+
+plt.show()
