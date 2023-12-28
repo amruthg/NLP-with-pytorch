@@ -1,0 +1,22 @@
+import torch
+
+def describe(x):
+    print("Type : {}".format(x.type()))
+    print("Shape/size: {}".format(x.shape))
+    print("Value: \n{}".format(x))
+
+x=torch.arange(6)#one dimensional tensor with values lying from 0 to 5
+describe(x)
+
+#this changes a tensor as vector to tensor as a matrix
+x=x.view(2,3)
+describe(x)
+
+#gives the sum along the 0th dimension(rows)
+describe(torch.sum(x,dim=0))
+
+#gives the transpose aling the oth and the 1st dimension
+describe(torch.transpose(x,0,1))
+
+#gives the sum along the 1st dimension(column)
+describe(torch.sum(x,dim=1))
