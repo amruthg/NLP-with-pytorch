@@ -1,0 +1,21 @@
+import torch
+
+def describe(x):
+    print("Type : {}".format(x.type()))
+    print("Shape/size: {}".format(x.shape))
+    print("Value: \n{}".format(x))
+
+x=torch.arange(6).view(2,3)
+describe(x)
+
+#this method takes the two 2X3 matrics and concatenates them along the diension 0 to give 4X3
+#matrix
+describe(torch.cat([x,x],dim=0))
+
+#this method takes the two 2X3 matrics and concatenates them along the diension 1 to give 2X6
+#matrix
+describe(torch.cat([x,x],dim=1))
+
+#this takes 2 copies of x and stacks them along a new dimesnion which becomes the new
+#0th dimension giving 2X2X3
+describe(torch.stack([x,x]))
