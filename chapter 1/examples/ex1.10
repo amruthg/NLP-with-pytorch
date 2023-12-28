@@ -1,0 +1,19 @@
+import torch
+
+def describe(x):
+    print("Type : {}".format(x.type()))
+    print("Shape/size: {}".format(x.shape))
+    print("Value: \n{}".format(x))
+
+#this creates a tensor of 2X3 marric having valies from 0 to 5
+x1 = torch.arange(6).view(2,3)
+describe(x1)
+
+#this creates a matrix 3X2.
+x2 = torch.ones(3,2)
+#this increments the 1st column(0-indexing) for all the rows by 1
+x2[:,1] += 1
+describe(x2)
+
+#this does matrix multiplication of x1 and x2 resulting in a 2X2 matrix
+describe(torch.mm(x1,x2))
